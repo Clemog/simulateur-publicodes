@@ -2,7 +2,7 @@
 import Engine, { formatValue } from "publicodes";
 import { FormBuilder } from "@publicodes/forms";
 import { useState } from "react";
-import rules from "./rules";
+import rules from "../../publicodes-build/simulateur-publicodes.model.json";
 import Input from "./Input";
 
 // Initialiser le moteur Publicodes
