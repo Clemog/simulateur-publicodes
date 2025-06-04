@@ -1,0 +1,29 @@
+nb jours:
+  titre: Nombre de jours facturés par mois
+  question: Combien de jours facturez-vous par mois en moyenne ?
+  par défaut: 12
+  unité: jour facturé/mois
+
+TJM:
+  titre: Tarif journalier moyen
+  question: Quel est votre tarif journalier ?
+  description: Tarif journalier hors taxe facturé à vos clients
+  par défaut: 500
+  unité: €/jour facturé
+
+CA:
+  titre: Chiffre d'affaires mensuel
+  valeur: TJM * nb jours
+  unité: €/mois
+
+charges fixes:
+  question: Quelles sont vos charges fixes ?
+  description: Incluez tous vos frais fixes - comptabilité, assurances, locaux, etc.
+  par défaut: 10 % * CA
+  unité: €/mois
+
+rémunération brute: CA - charges fixes
+
+rémunération nette: rémunération brute - cotisations sociales
+
+cotisations sociales: rémunération brute * 30%
