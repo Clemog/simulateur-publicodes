@@ -1,7 +1,7 @@
 nb jours:
   titre: Nombre de jours facturés par mois
   question: Combien de jours facturez-vous par mois en moyenne ?
-  par défaut: 12
+  par défaut: 10
   unité: jour facturé/mois
 
 TJM:
@@ -26,4 +26,28 @@ rémunération brute: CA - charges fixes
 
 rémunération nette: rémunération brute - cotisations sociales
 
-cotisations sociales: rémunération brute * 30%
+cotisations sociales:
+  valeur: rémunération brute * taux
+  unité: €/mois
+  avec:
+    taux:
+      variations:
+        - si: type de statut = 'auto-entrepreneur'
+          alors: 24%
+        - si: type de statut = 'indépendant'
+          alors: 30%
+        - si: type de statut = 'sasu'
+          alors: 50%
+
+type de statut:
+  question: Quel est votre type de statut ?
+  une possibilité:
+    - auto-entrepreneur
+    - indépendant
+    - sasu
+  par défaut: indépendant
+  avec:
+    auto-entrepreneur:
+      applicable si: CA <= 70000 €/an
+    indépendant:
+    sasu:
